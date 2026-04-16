@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Archive Gallery</title>
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+  <div class="header">#HairStory</div>
+  <div class="media-container">
+    <div class="all">ALL</div>
+    <div class="jpeg">.JPEG</div>
+    <div class="mp4">.MP4</div>
+    <div class="mp3">.MP3</div>
+    <div class="pdf">.PDF</div>
+  </div>
+  <div class="container">
+  <div class="item type-jpeg"
+     data-title="Mom's Hair Is A Symbol Of Her Sacrifice"
+     data-description="by Anonymous user"
+     data-image="Images/hair1.png">
+    <div class="label">[1]</div>
+    <img src="Images/1.png" alt="">
+  </div>
+    <div class="item type-jpeg"
+    data-title="I Cut My Hair As A Favor"
+    data-description="by Anonymous user"
+    data-image="Images/hair1.png">
+    
+    <div class="label">[2]</div>
+    <img src="Images/2.png" alt="image 2">
+  </div>
+    <div class="item type-jpeg">
+    <div class="label">[3]</div>
+    <img src="Images/3.png" alt="image 3">
+  </div>
+    <div class="item type-jpeg">
+    <div class="label">[4]</div>
+    <img src="Images/4.png" alt="image 4">
+  </div>
+    <div class="item type-mp3">
+    <div class="label">[5]</div>
+    <img src="Images/5.png" alt="image 5">
+  </div>
+    <div class="item type-pdf">
+    <div class="label">[6]</div>
+    <img src="Images/6.png" alt="image 6">
+  </div>
+    <div class="item type-pdf">
+    <div class="label">[7]</div>
+    <img src="Images/7.png" alt="image 7">
+  </div>
+    <div class="item type-jpeg">
+    <div class="label">[8]</div>
+    <img src="Images/8.png" alt="image 8">
+  </div>
+    <div class="item type-jpeg">
+    <div class="label">[9]</div>
+    <img src="Images/9.png" alt="image 9">
+  </div>
+    <div class="item type-jpeg">
+    <div class="label">[10]</div>
+    <img src="Images/10.png" alt="image 10">
+  </div>
+    <div class="item type-pdf">
+    <div class="label">[11]</div>
+    <img src="Images/11.png" alt="image 11">
+  </div>
+    <div class="item type-pdf">
+    <div class="label">[12]</div>
+    <img src="Images/12.png" alt="image 12">
+  </div>
+    <div class="item type-pdf">
+    <div class="label">[13]</div>
+    <img src="Images/13.jpg" alt="image 13">
+  </div>
+    <div class="item type-pdf">
+    <div class="label">[14]</div>
+    <img src="Images/14.jpg" alt="image 14">
+  </div>
+    <div class="item type-mp3">
+    <div class="label">[15]</div>
+    <img src="Images/15.jpg" alt="image 15">
+  </div>
+    <div class="item type-pdf">
+    <div class="label">[16]</div>
+    <img src="Images/16.jpeg" alt="image 16">
+  </div>
+    <div class="item type-mp4">
+    <div class="label">[17]</div>
+    <img src="Images/17.png" alt="image 17">
+  </div>
+    <div class="item type-mp4">
+    <div class="label">[18]</div>
+    <img src="Images/18.png" alt="image 18">
+  </div>
+  </div>
+  <div class="detail-panel" id="panel">
+  <div class="panel-content">
+    <div class="close-btn" id="closePanel">✕</div>
+
+    <h2 id="panelTitle"></h2>
+    <img id="panelImage" src="" alt="">
+    <p id="panelDescription"></p>
+
+  </div>
+</div>
+</body>
+<script>
+  const buttons = document.querySelectorAll('.media-container div');
+  const allItems = document.querySelectorAll('.item');
+
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+
+      const type = button.className; // gets 'jpeg', 'mp3', etc.
+
+      // If ALL is clicked → reset
+      if (type === 'all') {
+        allItems.forEach(item => item.classList.remove('dim'));
+        return;
+      }
+
+      // Step 1: dim everything
+      allItems.forEach(item => item.classList.add('dim'));
+
+      // Step 2: undim matching items
+      const activeItems = document.querySelectorAll('.type-' + type);
+      activeItems.forEach(item => item.classList.remove('dim'));
+    });
+  });
+  const items = document.querySelectorAll('.item');
+  const panel = document.getElementById('panel');
+  const closeBtn = document.getElementById('closePanel');
+
+  const panelTitle = document.getElementById('panelTitle');
+  const panelImg = document.getElementById('panelImage');
+  const panelDesc = document.getElementById('panelDescription');
+
+  items.forEach(item => {
+    item.addEventListener('click', () => {
+      // get data from clicked item
+      const title = item.dataset.title;
+      const img = item.dataset.image;
+      const desc = item.dataset.description;
+
+      // inject into panel
+      panelTitle.textContent = title;
+      panelImg.src = img;
+      panelDesc.textContent = desc;
+
+      // open panel
+      panel.classList.add('active');
+    });
+  });
+
+  closeBtn.addEventListener('click', () => {
+    panel.classList.remove('active');
+  });
+
+</script>
+</html>
