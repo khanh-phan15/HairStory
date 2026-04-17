@@ -24,19 +24,27 @@
     <div class="label">[1]</div>
     <img src="Images/1.png" alt="">
   </div>
+
     <div class="item type-jpeg"
     data-title="I Cut My Hair As A Favor"
     data-description="by Anonymous user"
-    data-image="Images/hair1.png">
-    
+    data-image="Images/Group 11.png">
     <div class="label">[2]</div>
     <img src="Images/2.png" alt="image 2">
   </div>
-    <div class="item type-jpeg">
+
+    <div class="item type-jpeg"
+    data-title="Memories"
+    data-description="by Anonymous user"
+    data-image="Images/Group 12.png">
     <div class="label">[3]</div>
     <img src="Images/3.png" alt="image 3">
   </div>
-    <div class="item type-jpeg">
+
+    <div class="item type-jpeg"
+    data-title="Join The Military"
+    data-description="by Anonymous user"
+    data-image="Images/Frame 21.png">
     <div class="label">[4]</div>
     <img src="Images/4.png" alt="image 4">
   </div>
@@ -52,7 +60,10 @@
     <div class="label">[7]</div>
     <img src="Images/7.png" alt="image 7">
   </div>
-    <div class="item type-jpeg">
+    <div class="item type-jpeg"
+    data-title="Memories"
+    data-description="by Anonymous user"
+    data-image="Images/IMG_8418 1.png">
     <div class="label">[8]</div>
     <img src="Images/8.png" alt="image 8">
   </div>
@@ -72,7 +83,10 @@
     <div class="label">[12]</div>
     <img src="Images/12.png" alt="image 12">
   </div>
-    <div class="item type-pdf">
+    <div class="item type-pdf"
+      data-title="I Cut My Hair As A Favor"
+      data-description="Coloring my hair different colors go beyond just aesthetics for me. I noticed throughout high school and college that professors were more likely to remember me if I had a distinct style, especially cause many of my classes were pre dominantly East Asian. It felt kind of demeaning to constantly be confused for other people, being called by different names or being forgotten despite me knowing that it's not my fault. Hair has become a form of my identity but also reminds me of my frustration towards being 'forgotten' growing up."
+      data-image="Images/13.jpg">
     <div class="label">[13]</div>
     <img src="Images/13.jpg" alt="image 13">
   </div>
@@ -136,20 +150,22 @@
   const closeBtn = document.getElementById('closePanel');
 
   const panelTitle = document.getElementById('panelTitle');
-  const panelImg = document.getElementById('panelImage');
   const panelDesc = document.getElementById('panelDescription');
+  const panelImg = document.getElementById('panelImage');
 
   items.forEach(item => {
     item.addEventListener('click', () => {
       // get data from clicked item
       const title = item.dataset.title;
+      const desc = item.dataset.description
       const img = item.dataset.image;
-      const desc = item.dataset.description;
+;
 
       // inject into panel
       panelTitle.textContent = title;
-      panelImg.src = img;
       panelDesc.textContent = desc;
+      panelImg.src = img;
+      
 
       // open panel
       panel.classList.add('active');
