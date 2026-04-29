@@ -302,3 +302,23 @@
 .col:hover .col-text {
   opacity: 1;
 }
+.page-transition {
+  position: fixed;
+  left: 0;
+  bottom: -100%;
+  width: 100%;
+  height: 100%;
+  background: #C20000;
+  z-index: 9999;
+  transition: bottom 0.5s ease;
+}
+
+/* slide UP (home → index) */
+.page-transition.up {
+  bottom: 0;
+}
+
+/* slide DOWN (index → home) */
+.page-transition.down {
+  bottom: -100%;
+}

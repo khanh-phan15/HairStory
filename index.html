@@ -8,6 +8,7 @@
 
 </head>
 <body>
+<div class="page-transition"></div>
 <a class="header" href="home.html">#HairStory</a>
 
   <div class="media-container">
@@ -23,7 +24,7 @@
 
   <a class="menu-item" href="index.html">Index</a>
   <a class="menu-item" href="story.html">Story</a>
-  <a class="menu-item" href="submit.html">Submit</a>
+  <a class="menu-item" href="mailto:khanhphan1500@gmail.com">Submit</a>
   <a class="menu-item" href="faq.html">FAQ</a>
   <a class="menu-item" href="license.html">License</a>
 </div>
@@ -286,6 +287,21 @@ menuItems.forEach(item => {
     indicator.style.transform = `translateX(${rect.left - parentRect.left - 6}px)`;
   });
 });
+document.addEventListener("DOMContentLoaded", () => {
+  const transition = document.querySelector(".page-transition");
+  const header = document.querySelector(".header");
 
+  header.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    // slide DOWN
+    transition.classList.remove("up");
+    transition.classList.add("down");
+
+    setTimeout(() => {
+      window.location.href = header.href;
+    }, 600);
+  });
+});
 </script>
 </html>
