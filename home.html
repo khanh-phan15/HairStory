@@ -47,7 +47,8 @@
   <span class="title-word">#HairStory</span>
 </div>
 <script>
- const cols = document.querySelectorAll('.col');
+document.addEventListener('DOMContentLoaded', () => {
+    const cols = document.querySelectorAll('.col');
 const title = document.querySelector('.title-word');
 
 cols.forEach((col, i) => {
@@ -64,5 +65,27 @@ cols.forEach((col, i) => {
     title.style.opacity = 1;
   });
 });
+  const menuItems = document.querySelectorAll('.menu-item');
+  const menu = document.querySelector('.menu');
+  const indicator = document.querySelector('.menu-indicator');
+
+  menuItems.forEach(item => {
+    item.addEventListener('mouseenter', () => {
+      const rect = item.getBoundingClientRect();
+      const parentRect = menu.getBoundingClientRect();
+
+      indicator.style.width = rect.width + 'px';
+      indicator.style.transform = `translateX(${rect.left - parentRect.left}px)`;
+      indicator.style.opacity = 1;
+    });
+  });
+
+  // optional: hide indicator when leaving menu
+  menu.addEventListener('mouseleave', () => {
+    indicator.style.opacity = 0;
+  });
+});
+</script>
+
 </script>
 </body>
