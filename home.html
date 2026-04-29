@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Archive Gallery</title>
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+<div class="menu">
+  <div class="menu-indicator"></div>
+
+
+  <a class="menu-item" href="index.html">Index</a>
+  <a class="menu-item" href="story.html">Story</a>
+  <a class="menu-item" href="submit.html">Submit</a>
+  <a class="menu-item" href="faq.html">FAQ</a>
+  <a class="menu-item" href="license.html">License</a>
+</div>
+  <div class="home">
+  <div class="col col-1">
+    <div class="col-subtitle">About</div>
+        <div class="col-text">#HairStory is an open space where hair becomes a form of storytelling. More than appearance, hair can hold memories of girlhood and motherhood, express femininity or masculinity, and mark moments of change, loss, or love.</div>
+  </div>
+  <div class="col col-2">
+    <div class="col-subtitle">01.</div>
+        <div class="col-text">Start with an image of the person whose hair the story is about
+            <span>Hair should be the focus. It can be a portrait, a close-up, or just the strands.</span>
+        </div>
+
+    </div>
+  <div class="col col-3">
+    <div class="col-subtitle">02.</div>
+        <div class="col-text">Connect that image to a story
+            <span>What does the hair say about your life, culture, identity, or experience? When did your hair mean something more than just hair?</span>
+        </div>
+
+  </div>
+  <div class="col col-4">
+    <div class="col-subtitle">03.</div>
+        <div class="col-text">Tell it your way
+            <span>Document your story in any form of media: writings, books, videos, audio, posters. Tag #HairStory when you publish it to any platforms</span></div>
+  </div>
+</div>
+<div class="page-title">
+  <span class="title-word">#HairStory</span>
+</div>
+<script>
+ const cols = document.querySelectorAll('.col');
+const title = document.querySelector('.title-word');
+
+cols.forEach((col, i) => {
+  col.addEventListener('mouseenter', () => {
+    // optional behavior: fade whole title OR partial effect
+    if (i === 0) {
+      title.style.opacity = 0; // "About"
+    } else {
+      title.style.opacity = 0; // "Story"
+    }
+  });
+
+  col.addEventListener('mouseleave', () => {
+    title.style.opacity = 1;
+  });
+});
+</script>
+</body>
