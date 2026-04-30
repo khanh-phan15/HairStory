@@ -181,7 +181,7 @@ body.index-page .header {
 .menu-item {
   color: #C20000;
   font-size: 14pt;
-  padding: 6px 12px;
+  padding: 12px 12px;
   cursor: pointer;
   position: relative;
   z-index: 2;
@@ -195,7 +195,7 @@ body.index-page .header {
   top: 6px;
   left: 6px;
   height: calc(100% - 12px);
-  width: 40px; /* will be overwritten by JS */
+  width: 40px;
 
   background: rgba(255, 255, 255, 0.772);
   border-radius: 999px;
@@ -430,4 +430,82 @@ background: none;
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+
+.faq-container {
+  width: 60%;
+  margin: 120px auto;
+  color: white;
+  font-size: 18px;
+}
+
+.faq-item {
+  border-bottom: 1px solid white;
+  padding: 20px 0;
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.arrow {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.faq-container {
+  width: 70%;
+  margin: 140px auto;
+  margin-left: 40px;
+  color: white;
+  font-size: 20pt;
+}
+
+.faq-item {
+  border-bottom: 2px solid rgba(255,255,255,0.3);
+  padding: 20px 0;
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.faq-question span {
+  flex: 1;
+}
+
+.arrow {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20pt;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+/* hidden by default */
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.3s ease;
+  padding-top: 0;
+  font-size: 15pt;
+}
+
+/* when active */
+.faq-item.active .faq-answer {
+  max-height: 300px;
+  opacity: 1;
+  padding-top: 10px;
 }

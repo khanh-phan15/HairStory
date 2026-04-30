@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Archive Gallery</title>
+  <link rel="stylesheet" href="styles.css">
+<style>
+.header {
+  position:relative;
+  top: 20px;
+  left: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #ffffff;
+}
+</style>
+</head>
+<body>
+<div class="page-transition"></div>
+<a class="header" href="home.html">#HairStory</a>
+
+<div class="menu">
+  <div class="menu-indicator"></div>
+
+  <a class="menu-item" href="index.html">Index</a>
+    <a class="menu-item" href="#" id="storyBtn">Story</a>
+  <a class="menu-item" href="mailto:khanhphan1500@gmail.com">Submit</a>
+  <a class="menu-item" href="faq.html">FAQ</a>
+</div>
+
+<div class="faq-container">
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>Why would people talk about hair?</span>
+      <button class="arrow">▾</button>
+    </div>
+    <div class="faq-answer">
+Because hair is one of the most visible and personal parts of our appearance, but it says a lot about a person.    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>How open is this project?</span>
+      <button class="arrow">▾</button>
+    </div>
+    <div class="faq-answer">
+Hairstory isn’t limited to this website or to one format. You can create your own version in any medium such as images, video, audio, writing, print, or digital. You can design it however you want, with any layout or structure that makes sense to you.    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>Can I submit my HairStory by myself?</span>
+      <button class="arrow">▾</button>
+    </div>
+    <div class="faq-answer">
+Yes, you can send your HairStory by hitting Submit.    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>Can I just simply host my stories locally?</span>
+      <button class="arrow">▾</button>
+    </div>
+    <div class="faq-answer">
+You can host it anywhere you want. HairStory isn’t a fixed archive; it’s an open prompt. The project grows through however you choose to interpret and share it.    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>Can I use the stories here as an inspiration?</span>
+      <button class="arrow">▾</button>
+    </div>
+    <div class="faq-answer">
+The stories here are meant to spark ideas, not set rules. You can borrow the structure, respond to a theme, or reinterpret an approach in your own way.    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>How to recognize a HairStory?</span>
+      <button class="arrow">▾</button>
+    </div>
+    <div class="faq-answer">
+You can include the HairStory logo on their post or piece.    </div>
+  </div>
+
+</div>
+ 
+
+</body>
+<script>
+ document.addEventListener('DOMContentLoaded', () => {
+
+  const menuItems = document.querySelectorAll('.menu-item');
+  const menu = document.querySelector('.menu');
+  const indicator = document.querySelector('.menu-indicator');
+
+  menuItems.forEach(item => {
+    item.addEventListener('mouseenter', () => {
+      const rect = item.getBoundingClientRect();
+      const parentRect = menu.getBoundingClientRect();
+
+      indicator.style.width = rect.width + 'px';
+      indicator.style.transform = `translateX(${rect.left - parentRect.left}px)`;
+      indicator.style.opacity = 1;
+    });
+  });
+
+  // optional: hide indicator when leaving menu
+  menu.addEventListener('mouseleave', () => {
+    indicator.style.opacity = 0;
+  });
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const transition = document.querySelector(".page-transition");
+  const links = document.querySelectorAll("a");
+
+  links.forEach(link => {
+    if (link.href.includes("index.html")) {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        transition.classList.add("up");
+
+        setTimeout(() => {
+          window.location.href = link.href;
+        }, 600);
+      });
+    }
+  });
+});
+const header = document.querySelector(".header");
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const faqItems = document.querySelectorAll(".faq-item");
+
+  faqItems.forEach(item => {
+    const question = item.querySelector(".faq-question");
+
+    question.addEventListener("click", () => {
+      item.classList.toggle("active");
+    });
+  });
+});
+</script>
+</html>
+<footer class="license">
+  <a href="https://khanh-phan15.github.io/HairStory/home.html">#HairStory</a>
+  © 2026 by
+  <a href="https://www.instagram.com/khanh.phan15/">Khanh Phan</a>
+  is licensed under
+  <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>
+
+  <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg">
+  <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg">
+  <img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg">
+  <img src="https://mirrors.creativecommons.org/presskit/icons/nd.svg">
+</footer>
