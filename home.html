@@ -5,7 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Archive Gallery</title>
   <link rel="stylesheet" href="styles.css">
+<style>
+    .header {
+  position: fixed;   /* key fix */
+  top: 20px;
+  left: 20px;
 
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+
+  color: #C20000;
+
+  opacity: 0;
+  transition: opacity 0.5s ease;
+
+  z-index: 100000;
+}
+
+</style>
 </head>
 <body>
     <a class="header" href="home.html">#HairStory</a>
@@ -45,9 +63,9 @@
 <div class="page-title">
   <span class="title-word">#HairStory</span>
 </div>
-<div class="story-text">
-  Hair holds memory. It carries identity, change, and time—quietly but persistently.
-</div>
+<div class="story-text">The story of #HairStory started when I came back to Vietnam after two years abroad. My mom picked me up at the airport, and her hair had turned almost completely white.
+It surprised me because the last time I saw her, her hair was still long and black. I found myself avoiding looking at it, as if not seeing it could slow down time. But I realized it had already passed—quietly, in her hair. White strands became a marker of memory and change.
+I also noticed something in myself: whenever life feels overwhelming, I cut my hair, especially my bangs. 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
     const cols = document.querySelectorAll('.col');
@@ -127,7 +145,6 @@ header.addEventListener("click", (e) => {
   }
 });
 </script>
-</body>
 <footer class="license">
   <a href="https://khanh-phan15.github.io/HairStory/home.html">#HairStory</a>
   © 2026 by
@@ -140,3 +157,4 @@ header.addEventListener("click", (e) => {
   <img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg">
   <img src="https://mirrors.creativecommons.org/presskit/icons/nd.svg">
 </footer>
+</body>
