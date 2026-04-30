@@ -83,7 +83,11 @@ Looking back, I think that was the first time I realized that people can change,
     <div class="label">[5]</div>
     <img src="Images/5.png" alt="image 5">
   </div>
-    <div class="item type-pdf">
+    <div class="item type-pdf"
+     data-title="I Turned 45"
+    data-author="By Anonymous User"        
+    data-description="Turning 45, I found myself caring less about how I look in the way I used to. Things like hair length stopped feeling like they needed to fit a certain image, and I started wanting to grow it long again—not for anyone else, but because it simply didn’t matter as much if it followed expectations or not."
+    data-image="Images/6.png">
     <div class="label">[6]</div>
     <img src="Images/6.png" alt="image 6">
   </div>
@@ -97,11 +101,10 @@ Looking back, I think that was the first time I realized that people can change,
     <img src="Images/7.png" alt="image 7">
   </div>
 
-    <div class="item type-pdf"
+    <div class="item type-jpeg"
     data-title="Memories"
     data-author="By Anonymous User"        
-    data-image="Images/8.png"
-    data-subimage="Images/IMG_8418 1.png">
+    data-image="Images/p8.jpg">
     <div class="label">[8]</div>
     <img src="Images/8.png" alt="image 8">
   </div>
@@ -160,7 +163,11 @@ Looking back, I think that was the first time I realized that people can change,
     <img src="Images/14.jpg" alt="image 14">
   </div>
 
-    <div class="item type-mp3">
+    <div class="item type-pdf"
+     data-title="Untitled"
+    data-author="By Anonymous User"        
+    data-description="This is my friend's hair. She just dyed it that day and we were out for brunch 3 years ago. It makes me think of how carefree and enjoyable that time was."
+    data-image="Images/15.jpg">
     <div class="label">[15]</div>
     <img src="Images/15.jpg" alt="image 15">
   </div>
@@ -199,12 +206,20 @@ Looking back, I think that was the first time I realized that people can change,
     <h2 id="panelTitle"></h2>
     <h3 id="panelAuthor"></h3>
     <img id="panelImage" src="" alt="">
-    <video id="panelVideo" autoplay loop muted playsinline style="display:none;"></video>    <p id="panelDescription"></p>
+    <video id="panelVideo" autoplay loop muted playsinline style="display:none;"></video>    
+<audio id="panelAudio" style="display:none;"></audio>
+<div class="audio-ui" id="audioUI" style="display:none;">
+  <button id="playBtn">▶</button>
+  <span id="audioTime"></span>
+</div>
+
+    <p id="panelDescription"></p>
   </div>
 </div>
 
 </body>
 <script>
+  
   const buttons = document.querySelectorAll('.media-container div');
   const allItems = document.querySelectorAll('.item');
 
@@ -236,52 +251,117 @@ Looking back, I think that was the first time I realized that people can change,
   const panelAuthor = document.getElementById('panelAuthor');
   const panelImg = document.getElementById('panelImage');
   const panelSubimg = document.getElementById('panelSubImage');
-
+  const panelAudio = document.getElementById('panelAudio');
+  const audioTime = document.getElementById('audioTime');
+const audioUI = document.getElementById('audioUI');
+const playBtn = document.getElementById('playBtn');
 
 
   items.forEach(item => {
-    item.addEventListener('click', () => {
-      // get data from clicked item
-      const title = item.dataset.title;
-      const desc = item.dataset.description
-      const img = item.dataset.image;
-      const video = item.dataset.video;
-      const author = item.dataset.author;
-// reset visibility
-    panelImg.style.display = 'block';
-    panelVideo.style.display = 'none';
-    panelAuthor.textContent = author || '';
+  item.addEventListener('click', () => {
 
-    // ✅ if mp4 → show video under image
+    // =========================
+    // GET DATA
+    // =========================
+    const title = item.dataset.title;
+    const desc = item.dataset.description;
+    const img = item.dataset.image;
+    const video = item.dataset.video;
+    const audio = item.dataset.audio;
+    const author = item.dataset.author;
+
+    // =========================
+    // RESET ALL MEDIA FIRST
+    // =========================
+    panelAudio.pause();
+    panelAudio.src = "";
+    panelAudio.style.display = "none";
+    audioTime.textContent = "";
+
+    panelVideo.pause();
+    panelVideo.src = "";
+    panelVideo.style.display = "none";
+
+    panelImg.src = "";
+    panelImg.style.display = "none";
+
+    // =========================
+    // SET TEXT
+    // =========================
+    panelTitle.textContent = title || "";
+    panelDesc.textContent = desc || "";
+    panelAuthor.textContent = author || "";
+
+    // =========================
+    // IMAGE
+    // =========================
+// IMAGE (works for jpeg + pdf + others that use data-image)
+if (img) {
+  panelImg.src = img;
+  panelImg.style.display = "block";
+}
+
+    // =========================
+    // VIDEO
+    // =========================
     if (item.classList.contains('type-mp4') && video) {
       panelVideo.src = video;
-      panelVideo.style.display = 'block';
+      panelVideo.style.display = "block";
     }
-;
 
-      // inject into panel
-      panelTitle.textContent = title;
-      panelDesc.textContent = desc;
-      panelImg.src = img;
-    
-      panelImg.classList.remove('pdf-small');
+    // =========================
+    // AUDIO (FIXED)
+    // =========================
+if (item.classList.contains('type-mp3') && audio) {
+  panelAudio.src = audio;
 
-    // only PDF gets smaller
+  audioUI.style.display = "flex";
+
+  panelAudio.onloadedmetadata = () => {
+    audioTime.textContent = "0:00 / " + formatTime(panelAudio.duration);
+  };
+
+  panelAudio.ontimeupdate = () => {
+    audioTime.textContent =
+      formatTime(panelAudio.currentTime) +
+      " / " +
+      formatTime(panelAudio.duration);
+  };
+
+  playBtn.onclick = () => {
+    if (panelAudio.paused) {
+      panelAudio.play();
+      playBtn.textContent = "❚❚";
+    } else {
+      panelAudio.pause();
+      playBtn.textContent = "▶";
+    }
+  };
+}
+
+    // =========================
+    // STYLE ADJUSTMENTS
+    // =========================
+    panelImg.classList.remove('pdf-small', 'mp3-small', 'mp4-small');
+
     if (item.classList.contains('type-pdf')) {
       panelImg.classList.add('pdf-small');
     }
 
-        if (item.classList.contains('type-mp3')) {
+    if (item.classList.contains('type-mp3')) {
       panelImg.classList.add('mp3-small');
     }
-            if (item.classList.contains('type-mp4')) {
+
+    if (item.classList.contains('type-mp4')) {
       panelImg.classList.add('mp4-small');
     }
 
-      // open panel
-      panel.classList.add('active');
-    });
+    // =========================
+    // OPEN PANEL
+    // =========================
+    panel.classList.add('active');
   });
+});
 
   closeBtn.addEventListener('click', () => {
     panel.classList.remove('active');

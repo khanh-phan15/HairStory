@@ -389,3 +389,45 @@ body.story-mode .col-text {
 }
 
 
+#audioUI {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  border: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+#playBtn {
+background: none;
+  border: 1.5px solid #C20000;
+  color: #C20000;
+  font-size: 14px;
+  width: 40px;
+  height: 40px;
+
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  padding: 0;
+}
+#playBtn:hover {
+  background: #C20000;
+  color: rgb(255, 255, 255);
+}
+#audioTime {
+  color: #C20000;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  font-size: 12px;
+  display: inline-block;
+}
+.audio-ui {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
