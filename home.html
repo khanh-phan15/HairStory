@@ -8,15 +8,14 @@
 
 </head>
 <body>
+    <a class="header" href="home.html">#HairStory</a>
 <div class="page-transition"></div>
 <div class="menu">
   <div class="menu-indicator"></div>
-
-
-  <a class="menu-item" href="index.html">Index</a>
-  <a class="menu-item" href="story.html">Story</a>
-  <a class="menu-item" href="mailto:khanhphan1500@gmail.com">Submit</a>
-  <a class="menu-item" href="faq.html">FAQ</a>
+    <a class="menu-item" href="index.html">Index</a>
+    <a class="menu-item" href="#" id="storyBtn">Story</a>
+    <a class="menu-item" href="mailto:khanhphan1500@gmail.com">Submit</a>
+    <a class="menu-item" href="faq.html">FAQ</a>
 </div>
   <div class="home">
   <div class="col col-1">
@@ -45,6 +44,9 @@
 </div>
 <div class="page-title">
   <span class="title-word">#HairStory</span>
+</div>
+<div class="story-text">
+  Hair holds memory. It carries identity, change, and time—quietly but persistently.
 </div>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
@@ -106,6 +108,24 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+
+
+const storyBtn = document.getElementById("storyBtn");
+const header = document.querySelector(".header");
+
+// turn ON story mode
+storyBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  document.body.classList.add("story-mode");
+});
+
+// turn OFF story mode via header
+header.addEventListener("click", (e) => {
+  if (document.body.classList.contains("story-mode")) {
+    e.preventDefault();
+    document.body.classList.remove("story-mode");
+  }
+});
 </script>
 </body>
 <footer class="license">

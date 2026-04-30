@@ -13,16 +13,25 @@
       font-family: 'PPEditorial-Ultralight', serif;
     }
 
-    .header {
-      padding: 20px;
-      font-size: 24px;
-      font-weight: bold;
-      text-decoration: none;
-      color: inherit;
-      display: inline-block;
-      z-index: 100000;
-      
-    }
+.header {
+  position: fixed;   /* key fix */
+  top: 20px;
+  left: 20px;
+
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+
+  color: #C20000;
+
+  opacity: 0;
+  transition: opacity 0.5s ease;
+
+  z-index: 100000;
+}
+    body.story-mode .header {
+    opacity: 1;
+}
    
     .media-container{
       display: flex;
@@ -196,7 +205,7 @@
   top: 6px;
   left: 6px;
   height: calc(100% - 12px);
-  width: 20px; /* will be overwritten by JS */
+  width: 40px; /* will be overwritten by JS */
 
   background: rgba(255, 255, 255, 0.772);
   border-radius: 999px;
@@ -340,3 +349,56 @@
   margin-left: 0.2em;
   vertical-align: middle;
 }
+
+
+
+
+.story-text {
+  position: fixed;
+  bottom: 50px;
+  left: 20px;
+  transform: translateX(-50%);
+  color: #C20000;
+  font-size: 20pt;
+  max-width: 70%;
+  text-align: left;
+
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+/* smooth fade for title */
+.page-title {
+  transition: opacity 0.5s ease;
+}
+
+/* STORY MODE */
+body.story-mode .page-title {
+  opacity: 0;
+}
+
+body.story-mode .story-text {
+  opacity: 1;
+}
+
+/* disable ALL hover interactions in story mode */
+body.story-mode .col {
+  pointer-events: none;   /* kills hover + click */
+}
+
+/* lock background (no hover swap) */
+body.story-mode .col-1,
+body.story-mode .col-2,
+body.story-mode .col-3,
+body.story-mode .col-4 {
+  background-image: url('Images/CamScanner 4-8-26 23.14_1.jpg') !important;
+}
+
+/* hide hover text completely */
+body.story-mode .col-subtitle,
+body.story-mode .col-text {
+  opacity: 0 !important;
+  transform: translateY(10px) !important;
+}
+
+
