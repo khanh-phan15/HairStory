@@ -76,7 +76,7 @@ body.index-page .header {
 }
 
 .item:hover .label {
-  color: #C20000; /* your red */
+  color: #C20000; 
 }
 .dim {
   opacity: 0.2;
@@ -131,7 +131,7 @@ body.index-page .header {
   margin: 65px auto 30px auto;
   font-size: 20px;
   width: 90%;}
-/* default = full width (jpeg, mp3, mp4...) */
+
 #panelImage.jpeg {
   width: 100%;
   height: auto;
@@ -177,7 +177,6 @@ body.index-page .header {
   z-index: 9999;
 }
 
-/* red text */
 .menu-item {
   color: #C20000;
   font-size: 14pt;
@@ -189,7 +188,6 @@ body.index-page .header {
   text-decoration: none;
 }
 
-/* sliding highlight */
 .menu-indicator {
   position: absolute;
   top: 6px;
@@ -206,7 +204,7 @@ body.index-page .header {
 
 .home {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr; /* first column bigger */
+  grid-template-columns: 2fr 1fr 1fr 1fr; 
   height: 100vh;
 }
 
@@ -215,17 +213,15 @@ body.index-page .header {
   background-size: cover;
   background-position: center;
   transition: background-image 0.4s ease;
-  position: relative; /* important for positioning text */
+  position: relative; 
   overflow: hidden;
 }
 
-/* DEFAULT (all columns form ONE image) */
 .col-1 { background-image: url('Images/CamScanner 4-8-26 23.14_1.jpg'); background-position: 0% center; }
 .col-2 { background-image: url('Images/CamScanner 4-8-26 23.14_1.jpg'); background-position: 33% center; }
 .col-3 { background-image: url('Images/CamScanner 4-8-26 23.14_1.jpg'); background-position: 66% center; }
 .col-4 { background-image: url('Images/CamScanner 4-8-26 23.14_1.jpg'); background-position: 100% center; }
 
-/* HOVER → only that column changes */
 .col-1:hover { background-image: url('Images/IMG_7846.jpg'); }
 .col-2:hover { background-image: url('Images/IMG_7846.jpg'); }
 .col-3:hover { background-image: url('Images/IMG_7846.jpg'); }
@@ -270,7 +266,7 @@ body.index-page .header {
 }
 .col-text span {
   display: block;
-  margin-top: 8px; /* optional spacing */
+  margin-top: 8px; 
   font-size: 15pt;
 }
 .col-2 .col-subtitle,
@@ -278,12 +274,12 @@ body.index-page .header {
 .col-4 .col-subtitle {
   font-size: 50pt;
   margin-top: 150px;
-  position: relative;   /* adjust as needed */
+  position: relative;   
 }
 .col-2 .col-text,
 .col-3 .col-text,
 .col-4 .col-text {
-  position: static;   /* or relative */
+  position: static;  
   margin-top: 10px;
   padding-left: 20px;
   width: 80%;
@@ -291,9 +287,8 @@ body.index-page .header {
 .col-2 .col-text span,
 .col-3 .col-text span,
 .col-4 .col-text span {
-  margin-top: 20px;    /* adjust as needed */
+  margin-top: 20px;    
 }
-/* show ONLY on hover */
 .col:hover .col-subtitle {
   opacity: 1;
   transform: translateY(0);
@@ -312,12 +307,10 @@ body.index-page .header {
   transition: bottom 0.5s ease;
 }
 
-/* slide UP (home → index) */
 .page-transition.up {
   bottom: 0;
 }
 
-/* slide DOWN (index → home) */
 .page-transition.down {
   bottom: -100%;
 }
@@ -354,12 +347,10 @@ body.index-page .header {
   transition: opacity 0.5s ease;
 }
 
-/* smooth fade for title */
 .page-title {
   transition: opacity 0.5s ease;
 }
 
-/* STORY MODE */
 body.story-mode .page-title {
   opacity: 0;
 }
@@ -368,12 +359,10 @@ body.story-mode .story-text {
   opacity: 1;
 }
 
-/* disable ALL hover interactions in story mode */
 body.story-mode .col {
-  pointer-events: none;   /* kills hover + click */
+  pointer-events: none; 
 }
 
-/* lock background (no hover swap) */
 body.story-mode .col-1,
 body.story-mode .col-2,
 body.story-mode .col-3,
@@ -381,7 +370,6 @@ body.story-mode .col-4 {
   background-image: url('Images/CamScanner 4-8-26 23.14_1.jpg') !important;
 }
 
-/* hide hover text completely */
 body.story-mode .col-subtitle,
 body.story-mode .col-text {
   opacity: 0 !important;
@@ -493,7 +481,6 @@ background: none;
   transition: transform 0.3s ease;
 }
 
-/* hidden by default */
 .faq-answer {
   max-height: 0;
   overflow: hidden;
@@ -503,7 +490,6 @@ background: none;
   font-size: 15pt;
 }
 
-/* when active */
 .faq-item.active .faq-answer {
   max-height: 300px;
   opacity: 1;

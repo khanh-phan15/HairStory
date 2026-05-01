@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="styles.css">
 <style>
     .header {
-  position: fixed;   /* key fix */
+  position: fixed;  
   top: 20px;
   left: 20px;
 
@@ -73,11 +73,10 @@ const title = document.querySelector('.title-word');
 
 cols.forEach((col, i) => {
   col.addEventListener('mouseenter', () => {
-    // optional behavior: fade whole title OR partial effect
     if (i === 0) {
-      title.style.opacity = 0; // "About"
+      title.style.opacity = 0; 
     } else {
-      title.style.opacity = 0; // "Story"
+      title.style.opacity = 0; 
     }
   });
 
@@ -100,7 +99,6 @@ cols.forEach((col, i) => {
     });
   });
 
-  // optional: hide indicator when leaving menu
   menu.addEventListener('mouseleave', () => {
     indicator.style.opacity = 0;
   });

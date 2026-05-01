@@ -237,16 +237,13 @@ Looking back, I think that was the first time I realized that people can change,
 
       const type = button.className; // gets 'jpeg', 'mp3', etc.
 
-      // If ALL is clicked → reset
       if (type === 'all') {
         allItems.forEach(item => item.classList.remove('dim'));
         return;
       }
 
-      // Step 1: dim everything
       allItems.forEach(item => item.classList.add('dim'));
 
-      // Step 2: undim matching items
       const activeItems = document.querySelectorAll('.type-' + type);
       activeItems.forEach(item => item.classList.remove('dim'));
     });
@@ -319,7 +316,7 @@ if (img) {
     }
 
     // =========================
-    // AUDIO (FIXED)
+    // AUDIO 
     // =========================
 if (item.classList.contains('type-mp3') && audio) {
   panelAudio.src = audio;
